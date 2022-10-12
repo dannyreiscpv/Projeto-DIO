@@ -1,0 +1,102 @@
+struct cadastro
+{  
+     int codigo;
+     char nome[50];
+     char vacina[15];
+     char cpf [14];
+     char data[10];
+     char lote[9];
+};
+    
+int main(void)
+
+{
+    setlocale(LC_ALL,"portuguese");
+    
+    struct cadastro lista_vacina [3];
+    int c, ap, consulta, op;
+    
+	
+	op=0;
+	while (op !=4) 
+	{
+		printf("1- Cadastrar Vacina \n");
+		printf("2- Listar aplicações \n");
+		printf("3- Consultar por cpf \n");
+		printf("4- Sair \n");
+		printf("Digite a opção desejada:");
+		scanf("%d", &op);
+		fflush (stdin);
+		if (op ==1)
+	    {
+	        system ("cls");
+            for (c=0; c< 3; c++) {
+            
+			    lista_vacina[c].codigo=1;
+            	printf("Digite o nome do paciente: \n");
+            	scanf("%s", lista_vacina[c].nome);
+	            fflush(stdin);
+            	printf("Digite o cpf: \n");
+            	scanf("%s", lista_vacina[c].cpf);
+            	fflush(stdin);
+            	printf("Digite a data da aplicação [DD/MM/AA]: \n");
+	            scanf ("%s", lista_vacina[c].data);
+	            fflush(stdin);
+	            printf("Digite a vacina aplicada: \n");
+            	scanf("%s", lista_vacina[c].vacina);
+            	fflush(stdin);
+	            printf("Digite o lote da vacina: \n");
+	            scanf ("%s", lista_vacina[c].lote);
+	            fflush(stdin);
+	        }
+	   }
+	   else 
+	   {
+	   	if (op ==2)
+	   	{
+	   		system("cls");
+	   		for (c=0; c<3; c++)
+	   		{
+	   			printf("\nCódigo:%d\n", lista_vacina[c].codigo);
+	   			printf("Nome: %s\n", lista_vacina[c].nome);
+	   			printf("CPF: %s\n", lista_vacina[c].cpf);
+	   			printf("Vacina: %s\n", lista_vacina[c].vacina);
+	   			printf("Data: %s\n", lista_vacina[c].data);
+	   			printf("Lote da Vacina: %s\n", lista_vacina[c].lote);
+			   }
+		   }
+		   else
+		   {
+		   	 if (op ==3)
+		   	 {
+		   		system ("cls");
+		   		printf("Digite o CPF que deseja consultar: ");
+		   		scanf ("%s", consulta);
+		   		c=0;
+		   		consulta =0;
+		   		while ((c<3) && (consulta ==0))
+		   		{
+		   			if (lista_vacina[c].cpf == consulta)
+		   			   consulta = 1;
+		   			else
+		   			    c++;
+				   }
+				   if (consulta ==1)
+				   {
+	   			      printf("Nome: %s\n", lista_vacina[c].nome);
+	   			      printf("CPF: %s\n", lista_vacina[c].cpf);
+	   			      printf("Vacina: %s\n", lista_vacina[c].vacina);
+	   			      printf("Data: %s\n", lista_vacina[c].data);
+	   			      printf("Lote da Vacina: %s\n", lista_vacina[c].lote);
+				   }
+				   else
+				      printf ("\n CPF não encontrado");
+				      
+			  }
+			   
+		    }
+		}
+	}
+	   
+	return 0;
+}
